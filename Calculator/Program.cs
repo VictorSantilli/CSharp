@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 
 namespace Calculator
 {
@@ -19,7 +20,8 @@ namespace Calculator
             Console.WriteLine("2 - Subtração");
             Console.WriteLine("3 - Divisão");
             Console.WriteLine("4 - Multiplicação");
-            Console.WriteLine("5 - Sair");
+            Console.WriteLine("5 - Opções Avançadas");
+            Console.WriteLine("0 - Sair");
 
             Console.WriteLine("---------------------");
             Console.WriteLine("Selecione uma opção : ");
@@ -31,11 +33,29 @@ namespace Calculator
                 case 2: Subtracao(); break;
                 case 3: Divisao(); break;
                 case 4: Multiplicacao(); break;
-                case 5: System.Environment.Exit(0); break;
+                case 5: OpcoesAvancadas(); break;
+                case 0: System.Environment.Exit(0); break;
                 default: Menu(); break;
 
             }
 
+        }
+
+        static void OpcoesAvancadas()
+        {
+            Console.Clear();
+            Console.WriteLine("Opções Avançadas");
+            Console.WriteLine("1 - Elevado");
+            Console.WriteLine("2 - Raiz Quadrada");
+            Console.WriteLine("0 - Voltar");
+            short res = short.Parse(Console.ReadLine());
+            switch (res)
+            {
+                case 1: Elevado(); break;
+                case 2: RaizQuadrada(); break;
+                case 0: Menu(); break;
+                default: OpcoesAvancadas(); break;
+            }
         }
 
         static void Soma()
@@ -114,5 +134,37 @@ namespace Calculator
             Menu();
         }
 
+        static void Elevado()
+        {
+            Console.Clear();
+
+            Console.WriteLine("Digite o valor do numero: ");
+            double v1 = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Digite o valor do expoente: ");
+            double v2 = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("");
+
+            double resultado = Math.Pow(v1, v2);
+            Console.WriteLine($"O resultado da potenciação é {resultado}");
+            Console.ReadKey();
+            Menu();
+
+        }
+
+        static void RaizQuadrada()
+        {
+            Console.Clear();
+
+            Console.WriteLine("Digite o valor da raiz quadrada: ");
+            double v1 = double.Parse(Console.ReadLine());
+
+            double resultado = Math.Sqrt(v1);
+            Console.WriteLine($"A raiz quadrade de {v1} é {resultado}");
+            Console.ReadKey();
+
+            Menu();
+        }
     }
 }
