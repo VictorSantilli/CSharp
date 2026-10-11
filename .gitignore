@@ -1,3 +1,14 @@
-.vscode/
+# Build
+[Bb]in/
+[Oo]bj/
 
-Calculator/bin/
+# IDEs
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
